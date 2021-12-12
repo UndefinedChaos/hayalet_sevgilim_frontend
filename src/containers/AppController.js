@@ -15,7 +15,7 @@ export const AppController = () =>{
     if(loadingPhase === 0){
       setTimeout(()=>{
         setLoadingPhase(1);
-      },500)
+      },700)
     }
     if ("geolocation" in navigator) {
       if(location === null){
