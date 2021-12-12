@@ -1,0 +1,7 @@
+.lyric-writer{
+  display: flex;
+  justify-content: space-between;
+}
+.lyrics, .controller{
+  flex:0 0 50%;
+}
