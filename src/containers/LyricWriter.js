@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Letter } from "../components/Letter";
-import { SpeedController } from "../components/SpeedController";
 import "./LyricWriter.css";
 
 export const LyricWriter = () =>{
-  const [ typeSpeed , setTypeSpeed ] = useState(100);
+  const typingSpeed = 85;
   const renderSong = () =>{
     const lyrics = `Ceza mı bu
     Çektiğim çile mi
@@ -54,20 +53,14 @@ export const LyricWriter = () =>{
     Hayalet sevgilim`.replaceAll("    ","").split("");
     return (
       lyrics.map((_letter, index)=>{
-        return <Letter key={`${_letter}_${index}`} typeSpeed={typeSpeed} letter={_letter} index={index} />
+        return <Letter key={`${_letter}_${index}`} typingSpeed={typingSpeed} letter={_letter} index={index} />
       })
     )
-  }
-  const handleSpeedChange = (e)=>{
-    setTypeSpeed(parseInt(e.target.value));
   }
   return(
     <div className="lyric-writer">
       <div key={new Date()} className = "lyrics">
         {renderSong()}
-      </div>
-      <div key="controller" className = "controller">
-        <SpeedController key="speedController" changeTypingSpeed={handleSpeedChange} value={typeSpeed} />
       </div>
     </div>
     

@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
 
 export const Letter = (props) =>{
-  const { letter, typeSpeed, index } = props;
+  const { letter, typingSpeed, index } = props;
   const [showLetter, setShowLetter] = useState("none");
   useEffect(() => {
-    const showTime = typeSpeed * index;
+    const showTime = typingSpeed * index;
     const shower = setTimeout(()=>{
       setShowLetter("inline-block")
     },showTime)
     return () => {
       clearInterval(shower);
     }
-  },[typeSpeed, index])
+  },[typingSpeed, index])
 
   const renderLetter = ()=>{
     if(letter === `\n`){

@@ -6,6 +6,7 @@
   align-items: center;
   font-size:22px;
   gap: 10px;
+  padding-top:10px
 }
 .loading .phase{
   display:flex;

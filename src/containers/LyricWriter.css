@@ -2,6 +2,19 @@
   display: flex;
   justify-content: space-between;
 }
-.lyrics, .controller{
-  flex:0 0 50%;
+.lyrics{
+  font-family: 'Inconsolata', monospace;
+  flex:0 0 100%;
+  background-color:black;
+  color:white;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  padding:5px;
+  height: 100vh;
+  overflow: auto;
+}
+@media screen and (max-width:470px){
+  .lyrics{
+    font-size: 14px;
+  } 
 }
