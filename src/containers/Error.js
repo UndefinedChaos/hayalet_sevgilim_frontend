@@ -9,5 +9,4 @@ export const Error = () => {
       <span>Malesef konumunuzu doğrulayamadık</span> 
     </div>
   )
-
 }

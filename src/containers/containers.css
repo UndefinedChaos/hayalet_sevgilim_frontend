@@ -47,3 +47,9 @@
   margin-top:10px;
   color:rgba(231, 34, 34, 0.897);
 }
+
+@media screen and (max-width:470px) {
+  .error{
+    font-size:20px;
+  }
+}
