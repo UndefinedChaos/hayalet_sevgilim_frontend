@@ -26,27 +26,29 @@ export const AppController = () =>{
           },500)
         }));
       }else{
-        axios.get(`https://hayalet-sevgilim-backend.herokuapp.com/foundStarbucks?lat=${location.lat}&long=${location.lng}`)
-        .then(function (response) {
-          if(response.status === 200){
-            if(response.data.LocationFound){
-              setLoadingPhase(3);
-              setTimeout(()=>{
-                setLoading(false);
-              },1000)
-            }else{
-              setTimeout(()=>{
-                setError(true);
-              },1000)
+        if(loadingPhase === 2){
+          axios.get(`https://hayalet-sevgilim-backend.herokuapp.com/foundStarbucks?lat=${location.lat}&long=${location.lng}`)
+          .then(function (response) {
+            if(response.status === 200){
+              if(response.data.LocationFound){
+                setLoadingPhase(3);
+                setTimeout(()=>{
+                  setLoading(false);
+                },1000)
+              }else{
+                setTimeout(()=>{
+                  setError(true);
+                },1000)
+              }
+              
             }
-            
-          }
-        })
-        .catch(function (error) {
-          setTimeout(()=>{
-            setError(true);
-          },500)
-        })
+          })
+          .catch(function (error) {
+            setTimeout(()=>{
+              setError(true);
+            },500)
+          })
+        }
       }
     } else {
       setTimeout(()=>{
