@@ -26,14 +26,20 @@ export const AppController = () =>{
           },500)
         }));
       }else{
-        //const reqLatLng = `${location[0]},${location[1]}`;
-        axios.get('https://www.7timer.info/bin/astro.php?lon=113.2&lat=23.1&ac=0&unit=metric&output=json&tzshift=0')
+        axios.get(`https://hayalet-sevgilim-backend.herokuapp.com/foundStarbucks?lat=${location.lat}&long=${location.lng}`)
         .then(function (response) {
           if(response.status === 200){
-            setLoadingPhase(3);
-            setTimeout(()=>{
-              setLoading(false);
-            },1000)
+            if(response.data.LocationFound){
+              setLoadingPhase(3);
+              setTimeout(()=>{
+                setLoading(false);
+              },1000)
+            }else{
+              setTimeout(()=>{
+                setError(true);
+              },1000)
+            }
+            
           }
         })
         .catch(function (error) {
