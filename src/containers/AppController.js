@@ -48,7 +48,6 @@ export const AppController = () =>{
        if(loadingPhase === 2 && storageChange){
           axios.get(`https://hayalet-sevgilim-backend.herokuapp.com/foundStarbucks?lat=${location.lat}&long=${location.lng}`)
           .then(function (response) {
-            console.log("NEW");
             if(response.status === 200){
               localStorage.setItem("locationFound",response.data.LocationFound);
               if(response.data.LocationFound){
@@ -71,7 +70,6 @@ export const AppController = () =>{
           })
         }else if(loadingPhase===2){
           const oldLocationFound = localStorage.getItem('locationFound');
-          console.log("OLD",localStorage);
           if(oldLocationFound === "true"){
             setTimeout(()=>{
               setLoadingPhase(3);
